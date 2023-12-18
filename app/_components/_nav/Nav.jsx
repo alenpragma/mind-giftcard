@@ -12,32 +12,39 @@ const Nav = () => {
     let navdata =[
         {
             navitem:"Dashboard",
-            icon :<LuLayoutDashboard/>
+            icon :<LuLayoutDashboard/>,
+            path:"/"
 
         },
         {
             navitem:"Create",
-            icon :<MdOutlineNoteAdd/>
+            icon :<MdOutlineNoteAdd/>,
+            path:"/create"
+            
 
         },
         {
             navitem:"Redeem",
-            icon :<MdOutlineAccountBalanceWallet />
+            icon :<MdOutlineAccountBalanceWallet />,
+            path:"/redeem"
 
         },
         {
             navitem:"Validity",
-            icon :<MdFileDownloadDone />
+            icon :<MdFileDownloadDone />,
+            path:"/validity"
 
         },
         {
             navitem:"Explore",
-            icon :<MdOutlineRocketLaunch />
+            icon :<MdOutlineRocketLaunch />,
+            path:"/explore"
 
         },
         {
             navitem:"Transaction",
-            icon :<GrTransaction/>
+            icon :<GrTransaction/>,
+            path:"/transaction"
 
         },
 
@@ -61,7 +68,7 @@ const Nav = () => {
             {
                 navdata.map((item,index)=>(
 
-                    <li className="w-[70px]  md:w-[150px]" title={item.navitem}> <Link href={"/"} className="w-full py-[10px] text-center  bg-primary-orange gap-x-1 text-white rounded-lg flex items-center justify-center duration-200 hover:bg-primary-main-blue">{item.icon} <span className="hidden md:block">{item.navitem}</span></Link></li>
+                    <li className="w-[70px]  md:w-[150px]" title={item.navitem}> <Link href={item.path} className={`${pathname === item.path ? "bg-primary-main-blue":"bg-primary-orange"} w-full py-[10px] text-center  bg-primary-orange gap-x-1 text-white rounded-lg flex items-center justify-center duration-200 hover:bg-primary-main-blue`}>{item.icon} <span className="hidden md:block">{item.navitem}</span></Link></li>
                 ))
             }
         </ul>
