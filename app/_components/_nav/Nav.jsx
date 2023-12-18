@@ -93,7 +93,7 @@ const Nav = () => {
                   pathname === item.path
                     ? "bg-primary-main-blue"
                     : "bg-primary-orange"
-                } w-full py-[10px] text-center  bg-primary-orange gap-x-1 text-white rounded-lg flex items-center justify-center duration-200 hover:bg-primary-main-blue`}
+                } w-full py-[10px] text-center   gap-x-1 text-white rounded-lg flex items-center justify-center duration-200 hover:bg-primary-main-blue`}
               >
                 {item.icon}{" "}
                 <span className="hidden md:block">{item.navitem}</span>
