@@ -46,7 +46,7 @@ const Nav = () => {
       path: "/",
     },
   ];
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
