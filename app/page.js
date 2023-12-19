@@ -1,10 +1,33 @@
-import React from "react";
+'use client'
+import React
+,{useEffect,useState} from "react";
 import Image from "next/image";
 import banner from "./_svg/banner.svg";
 import Trans from "./_svg/Trans.svg";
 import { FaMoneyBillWave } from "react-icons/fa";
+import { prov } from "./const";
+
 
 const page = () => {
+  const [ethBalance, setEthBalance] = useState(null);
+
+  useEffect(() => {
+    const fetchEthBalance = async () => {
+      if (prov) {
+        try {
+          const accounts = await prov.eth.getAccounts();
+          const balance = await prov.eth.getBalance(accounts[0]);
+         
+          const formattedBalance = prov.utils.fromWei(balance, "ether");
+          setEthBalance(formattedBalance);
+        } catch (error) {
+          console.error("Error fetching MIND balance:", error);
+        }
+      }
+    };
+
+    fetchEthBalance();
+  }, []);
   return (
     <div className="pt-[80px] p-[10px] w-full">
       {/* banner start */}
@@ -19,11 +42,11 @@ const page = () => {
             <div className="flex justify-between items-center text-white font-semibold text-[30px]">
               <h3>Balance</h3>{" "}
               <h3>
-                <FaMoneyBillWave className="text-[30px]" />
+                <FaMoneyBillWave className="text-[10px]" />
               </h3>
             </div>
             <div className="mt-7">
-              <h1 className="text-4xl font-bold text-white">$6000</h1>
+              <h1 className="text-4xl font-bold text-white">{ethBalance} MIND </h1>
             </div>
           </div>
           <div className="mt-3 flex  justify-between">
