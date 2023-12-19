@@ -73,20 +73,19 @@ const Nav = () => {
       <div className="flex flex-col gap-y-5">
         <div className="flex items-center">
           <img
-            src="https://icoholder.com/media/cache/ico_logo_view_page/files/img/cba29b818040a4ccd81fe7f057e3e620.png"
+            src=""
             className="w-[70px] h-auto block md:hidden"
             alt="logo"
           />
           <img
-            src="	https://mindchain.info/Upload/public/6518789549580.png"
+            src="https://mindchain.info/Upload/public/6518789549580.png"
             className="w-[150px] h-auto hidden md:block"
             alt="logo"
           />
         </div>
         <ul className="flex flex-col gap-y-2">
           {navdata.map((item, index) => (
-            <li className="w-[70px]  md:w-[250px]" title={item.navitem}>
-              {" "}
+            <li key={index} className="w-[70px]  md:w-[250px]" title={item.navitem}>
               <Link
                 href={item.path}
                 className={`${
@@ -95,7 +94,7 @@ const Nav = () => {
                     : "bg-primary-orange"
                 } w-full py-[10px] text-center   gap-x-1 text-white rounded-lg flex items-center justify-center duration-200 hover:bg-primary-main-blue`}
               >
-                {item.icon}{" "}
+                {item.icon} 
                 <span className="hidden md:block">{item.navitem}</span>
               </Link>
             </li>
